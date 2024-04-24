@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM practice</title>
+</head>
+<body style="background-color: #212121; color: #fff;" >
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    
+</body>
+<script>
+    function myDiv() {
+    //creating a new div element by using DOM
+    const div = document.createElement('div');
+    console.log(div);
+    div.className = "myDiv"
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute("title","generated title")
+    const addText = document.createTextNode("Here is my practice div")
+    div.appendChild(addText)
+
+    div.style.backgroundColor = "orange"
+    div.style.padding = "15px"
+
+    //to display the div and its properties on the html page.
+    document.body.appendChild(div);
+    }
+    myDiv()
+
+    function addLanguage(langName) {
+        const li = document.createElement('li')
+        // console.log(li);
+        li.innerHTML = `${langName}`
+
+        document.querySelector(".language").appendChild(li);
+
+    }
+    addLanguage("python")
+
+    //more optimized approach
+    function addOptiLanguage(langName) {
+        const li = document.createElement('li')
+
+        li.appendChild(document.createTextNode(langName))
+
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addOptiLanguage("PHP")
+
+    // to edit second language
+    const secondLang = document.querySelector('li:nth-child(2)')
+    // console.log(secondLang);
+    // secondLang.innerHTML = "java"
+
+    const newLang = document.createElement('li')
+    newLang.textContent = "java"
+    secondLang.replaceWith(newLang)
+
+    //another approach to edit 
+    const firstLang = document.querySelector('li:first-child')
+    // console.log(firstLang);
+    firstLang.outerHTML = "<li>HTML</li>"
+
+    //to remove an element
+    const lastLang = document.querySelector('li:last-child')
+    // console.log(lastLang);
+    lastLang.remove()
+</script>
+</html>

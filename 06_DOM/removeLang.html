@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Language</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>C++</li>
+    </ul>    
+</body>
+<script>
+    function removeLang(langName){
+        const LanguageList = document.querySelector('.language')
+        // console.log(LanguageList);
+        const Languages = document.getElementsByTagName("li")
+        // console.log(Languages);
+
+        for (let i = 0; i < Languages.length; i++) {
+            if(Languages[i].textContent === langName){
+                LanguageList.removeChild(Languages[i]);
+                break;
+            }
+        }
+    }
+    removeLang("JavaScript")
+</script>
+</html>
