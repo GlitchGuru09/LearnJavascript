@@ -16,6 +16,7 @@ Object.prototype.shrey = function(){
     console.log("shrey is present in all objects");
 }
 
+
 Array.prototype.heyShrey = function(){
     console.log("shrey says hello");
 }
